@@ -3,9 +3,9 @@ import React from "react"
 function App() {
 
   return (
-    <>
-      <h1>Netflix</h1>
-    </>
+    <div className="min-h-screen flex items-center justify-center bg-black">
+      <h1 className="text-5xl font-bold text-red-600">NetflixX</h1>
+    </div>
   )
 }
 
