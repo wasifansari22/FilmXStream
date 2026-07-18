@@ -2,8 +2,10 @@ import React from 'react'
 
 const Loader = () => {
     return (
-        <div>Loader Page</div>
-    )
-}
+        <div className='flex justify-center items-center h-64'>
+            <p className='text-xl'>Loading Movies...</p>
+        </div>
+    );
+};
 
 export default Loader;
