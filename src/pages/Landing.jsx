@@ -1,9 +1,15 @@
 import React from 'react'
+import Header from "../components/Header"
+import Hero from "../components/Hero"
+import Footer from "../components/Footer"
 
 const Landing = () => {
   return (
     <>
-    <h1>Landing Page</h1></>
+      <Header/>
+      <Hero/>
+      <Footer/>
+    </>
   )
 }
 
