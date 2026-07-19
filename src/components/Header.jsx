@@ -10,7 +10,7 @@ const Header = () => {
         <header className="absolute top-0 left-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
                 <h1 className="text-red-600 text-3xl md:text-4xl font-bold tracking-wide">
-                    NetflixX
+                    FilmXStream
                 </h1>
 
                 <div className="flex gap-8">

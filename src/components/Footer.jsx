@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <>
-            <p className='flex justify-center'>© 2026 NetflixX</p>
+            <p className='flex justify-center'>© 2026 FilmXStream</p>
         </>
     );
 };
