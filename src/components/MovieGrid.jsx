@@ -14,7 +14,7 @@ const MovieGrid = () => {
   const fetchMovies = async () => {
     try {
       const data = await getPopularMovies();
-      console.log(data);
+      // console.log(data);
       setMovies(data);
     } catch (error) {
       console.error(error);
