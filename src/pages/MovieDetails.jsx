@@ -3,11 +3,27 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { getMovieDetails, imageBaseUrl } from '../services/tmdbApi';
+import { useDispatch, useSelector } from "react-redux";
+import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import Footer from '../components/Footer';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  const savedMovies = useSelector(state => state.watchLater.movies);
+  const isSaved = movie ? savedMovies.some(item => item.id === movie.id) : false;
+
+  const handleWatchLater = () => {
+    if (isSaved) {
+      dispatch(removeMovie(movie.id));
+    } else {
+      dispatch(addMovie(movie));
+    }
+  };
 
   useEffect(() => {
     fetchMovie();
@@ -16,6 +32,8 @@ const MovieDetails = () => {
   const fetchMovie = async () => {
     try {
       const data = await getMovieDetails(id);
+      // test the movie data from console.log
+      // console.log(data)
       setMovie(data);
     } catch (error) {
       console.error(error);
@@ -34,21 +52,24 @@ const MovieDetails = () => {
 
   return (
     <main className="min-h-screen bg-[#141414] text-white">
-      <Header />
 
-      <div className="max-w-7xl mx-auto px-6 pt-28">
-        <Link
-          to="/movies"
-          className="text-red-500 hover:text-white transition duration-300"
-        >
-          ← Back to Movies
-        </Link>
+      <div
+        className="relative h-[65vh] bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${imageBaseUrl}${movie.backdrop_path})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70"></div>
+        <Header />
+      </div>
 
-        <div className="mt-8 grid md:grid-cols-2 gap-10">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="-mt-40 relative z-20 flex flex-col md:flex-row gap-10">
           <img
             src={`${imageBaseUrl}${movie.poster_path}`}
             alt={movie.title}
-            className="rounded-xl shadow-xl"
+            className="w-72 rounded-xl shadow-2xl"
           />
 
           <div>
@@ -82,6 +103,29 @@ const MovieDetails = () => {
             <p className="mt-8 leading-8 text-gray-300">
               {movie.overview}
             </p>
+
+            {/* watch later button */}
+            <button
+              onClick={handleWatchLater}
+              className={`px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2 mt-3 cursor-pointer ${isSaved
+                ? "bg-red-600 hover:bg-red-700"
+                : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
+                }`}
+            >
+              {isSaved ? <FaHeart /> : <FaRegHeart />}
+              {isSaved ? "Saved" : "Watch Later"}
+            </button>
+
+            {/* back link */}
+            <div className="mt-5">
+              <Link
+                to="/movies"
+                className="inline-flex items-center text-red-500 hover:text-white transition-all duration-300"
+              >
+                ← Back to Movies
+              </Link>
+            </div>
+
           </div>
 
         </div>

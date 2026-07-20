@@ -1,0 +1,6 @@
+<Link
+    to="/movies"
+    className="inline-flex items-center gap-2 border border-gray-600 px-5 py-2 rounded-md hover:bg-gray-700 transition-all duration-300"
+>
+    ← Back to Movies
+</Link>

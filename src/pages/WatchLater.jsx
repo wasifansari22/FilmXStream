@@ -13,7 +13,16 @@ const WatchLater = () => {
       <Header />
 
       <section className='max-w-7xl mx-auto px-6 pt-28 pb-10'>
-        <h1 className='text-4xl font-bold mb-8'>Watch Later</h1>
+        <h1 className='text-4xl font-bold mb-3'>Watch Later</h1>
+
+        <div className="mb-5">
+          <Link
+            to="/movies"
+            className="inline-flex items-center text-red-500 hover:text-white transition-all duration-300"
+          >
+            ← Back to Movies
+          </Link>
+        </div>
 
         {
           savedMovies.length === 0 ? (
