@@ -33,6 +33,9 @@ const MovieDetails = () => {
         const movieData = await getMovieDetails(id);
         setMovie(movieData);
 
+        // const genreData = await getGenres();
+        // setGenres(genreData);
+
         const videos = await getMovieTrailer(id);
         const bestVideo = getBestVideo(videos);
 
