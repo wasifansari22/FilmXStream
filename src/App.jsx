@@ -1,11 +1,11 @@
-import React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Landing from "./pages/Landing"
-import Movies from "./pages/Movies"
-import MovieDetails from "./pages/MovieDetails"
-import WatchLater from "./pages/WatchLater"
-import Filter from "./pages/Filter"
-import NotFound from "./pages/NotFound"
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Movies from "./pages/Movies";
+import MovieDetails from "./pages/MovieDetails";
+import WatchLater from "./pages/WatchLater";
+import Filter from "./pages/Filter";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;
