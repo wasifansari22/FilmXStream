@@ -6,11 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Footer from '../components/Footer';
+import TrailerModal from '../components/TrailerModal';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [trailerKey, setTrailerKey] = useState("");
+  const [showTrailer, setShowTrailer] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
@@ -142,14 +144,7 @@ const MovieDetails = () => {
               {/* trailer button - if there is trailer available the button have cursor pointer or else not-allowed */}
               <button
                 disabled={!trailerKey}
-                onClick={() => {
-                  if (trailerKey) {
-                    window.open(
-                      `https://www.youtube.com/watch?v=${trailerKey}`,
-                      "_blank"
-                    );
-                  }
-                }}
+                onClick={() => setShowTrailer(true)}
                 className={`px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 outline-1 ${trailerKey
                   ? "bg-white text-black hover:bg-gray-200 cursor-pointer"
                   : "bg-gray-600 text-gray-300 cursor-not-allowed"
@@ -185,6 +180,11 @@ const MovieDetails = () => {
 
         </div>
       </div>
+
+      {/* render modal */}
+      <TrailerModal
+        trailerKey={showTrailer ? trailerKey : ""}
+        onClose={() => setShowTrailer(false)} />
 
     </main>
   );
