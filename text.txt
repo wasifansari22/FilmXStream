@@ -4,3 +4,34 @@
 >
     ← Back to Movies
 </Link>
+
+{/* trailer button - if there is trailer available the button have cursor pointer or else not-allowed */}
+            <button
+              disabled={!trailerKey}
+              onClick={() => {
+                if (trailerKey) {
+                  window.open(
+                    `https://www.youtube.com/watch?v=${trailerKey}`,
+                    "_blank"
+                  );
+                }
+              }}
+              className={`px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 ${trailerKey
+                ? "bg-white text-black hover:bg-gray-200"
+                : "bg-gray-600 text-gray-300 cursor-not-allowed"
+                }`}
+            >
+              ▶ Watch Trailer
+            </button>
+
+            {/* watch later button */}
+            <button
+              onClick={handleWatchLater}
+              className={`px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2 mt-3 cursor-pointer ${isSaved
+                ? "bg-red-600 hover:bg-red-700"
+                : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
+                }`}
+            >
+              {isSaved ? <FaHeart /> : <FaRegHeart />}
+              {isSaved ? "Saved" : "Watch Later"}
+            </button>

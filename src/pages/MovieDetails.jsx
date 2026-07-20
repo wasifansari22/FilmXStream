@@ -1,8 +1,7 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
-import { getMovieDetails, imageBaseUrl } from '../services/tmdbApi';
+import { getMovieDetails, imageBaseUrl, getMovieTrailer } from '../services/tmdbApi';
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -11,6 +10,7 @@ import Footer from '../components/Footer';
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [trailerKey, setTrailerKey] = useState("");
   const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
@@ -26,26 +26,60 @@ const MovieDetails = () => {
   };
 
   useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const movieData = await getMovieDetails(id);
+        setMovie(movieData);
+
+        const videos = await getMovieTrailer(id);
+        const bestVideo = getBestVideo(videos);
+
+        if (bestVideo) {
+          setTrailerKey(bestVideo.key);
+        }
+
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchMovie();
   }, [id]);
 
-  const fetchMovie = async () => {
-    try {
-      const data = await getMovieDetails(id);
-      // test the movie data from console.log
-      // console.log(data)
-      setMovie(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
+  const getBestVideo = (videos) => {
+    const priorities = [
+      "Trailer",
+      "Teaser",
+      "Featurette",
+      "Behind the Scenes",
+      "Clip"
+    ];
+
+    for (const type of priorities) {
+      const video = videos.find(
+        (item) =>
+          item.site === "YouTube" &&
+          item.type === type
+      );
+
+      if (video) return video;
     }
+    return null;
   };
 
   if (loading) {
     return (
       <div className="min-h-screen bg-[#141414] text-white flex justify-center items-center">
         Loading...
+      </div>
+    );
+  }
+
+  if (!movie) {
+    return (
+      <div className="min-h-screen bg-[#141414] flex justify-center items-center text-white">
+        Movie not found.
       </div>
     );
   }
@@ -100,21 +134,42 @@ const MovieDetails = () => {
               ))}
             </div>
 
-            <p className="mt-8 leading-8 text-gray-300">
+            <p className="mt-8 mb-4 leading-8 text-gray-300">
               {movie.overview}
             </p>
 
-            {/* watch later button */}
-            <button
-              onClick={handleWatchLater}
-              className={`px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2 mt-3 cursor-pointer ${isSaved
-                ? "bg-red-600 hover:bg-red-700"
-                : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
-                }`}
-            >
-              {isSaved ? <FaHeart /> : <FaRegHeart />}
-              {isSaved ? "Saved" : "Watch Later"}
-            </button>
+            <div className="flex items-center gap-5">
+              {/* trailer button - if there is trailer available the button have cursor pointer or else not-allowed */}
+              <button
+                disabled={!trailerKey}
+                onClick={() => {
+                  if (trailerKey) {
+                    window.open(
+                      `https://www.youtube.com/watch?v=${trailerKey}`,
+                      "_blank"
+                    );
+                  }
+                }}
+                className={`px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 outline-1 ${trailerKey
+                  ? "bg-white text-black hover:bg-gray-200 cursor-pointer"
+                  : "bg-gray-600 text-gray-300 cursor-not-allowed"
+                  }`}
+              >
+                ▶ Watch Trailer
+              </button>
+
+              {/* watch later button */}
+              <button
+                onClick={handleWatchLater}
+                className={`px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2 cursor-pointer ${isSaved
+                  ? "bg-red-600 hover:bg-red-700"
+                  : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
+                  }`}
+              >
+                {isSaved ? <FaHeart /> : <FaRegHeart />}
+                {isSaved ? "Saved" : "Watch Later"}
+              </button>
+            </div>
 
             {/* back link */}
             <div className="mt-5">
