@@ -18,3 +18,15 @@ export const getPopularMovies = async () => {
         throw error;
     }
 };
+
+export const getMovieDetails = async (movieId) => {
+    try {
+        const response = await axios.get(
+            `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+        );
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching movie details:", error);
+        throw error;
+    }
+};
