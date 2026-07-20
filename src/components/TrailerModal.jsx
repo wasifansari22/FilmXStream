@@ -15,7 +15,7 @@ const TrailerModal = ({ trailerKey, onClose }) => {
 
                 {/* youtube player */}
                 <iframe
-                    className='w-full h-full rounded-xl'
+                    className='w-full h-full rounded-xl cursor-pointer'
                     src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1`}
                     title='Movie Trailer'
                     allow='autoplay; encrypted-media'

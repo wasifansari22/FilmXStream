@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import MovieGrid from "../components/MovieGrid";
 import Loader from "../components/Loader";
-import { getPopularMovies } from "../services/tmdbApi";
+import { getPopularMovies, getGenres } from "../services/tmdbApi";
 import SearchBar from "../components/SearchBar";
+import GenreFilter from "../components/GenreFilter";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   useEffect(() => {
     fetchMovies();
@@ -18,6 +21,10 @@ const Movies = () => {
     try {
       const data = await getPopularMovies();
       setMovies(data);
+
+      const genreData = await getGenres();
+      setGenres(genreData);
+
     } catch (error) {
       console.error(error);
     } finally {
@@ -31,9 +38,11 @@ const Movies = () => {
   }
 
   // filtered movies - converts the movie title to lowercase. eg: bat: Batman Begins, The Batman....
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredMovies = movies.filter((movie) => {
+    const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesGenre = selectedGenre === "" || movie.genre_ids.includes(Number(selectedGenre));
+    return matchesSearch && matchesGenre;
+  });
 
   return (
     <main className="min-h-screen bg-[#141414] text-white">
@@ -47,6 +56,12 @@ const Movies = () => {
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
+        />
+
+        <GenreFilter
+          genres={genres}
+          selectedGenre={selectedGenre}
+          setSelectedGenre={setSelectedGenre}
         />
 
         {/* passing the filtered movies */}
