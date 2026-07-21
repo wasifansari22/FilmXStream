@@ -189,6 +189,9 @@ const MovieDetails = () => {
         trailerKey={showTrailer ? trailerKey : ""}
         onClose={() => setShowTrailer(false)} />
 
+      <div className="mt-20">
+        <Footer />
+      </div>
     </main>
   );
 };

@@ -102,3 +102,35 @@ const GenreFilter = ({ genres, selectedGenre, setSelectedGenre, }) => {
 };
 
 export default GenreFilter;
+
+footer
+{/* tagline */}
+                {/* <p className="text-center text-gray-400 mt-3">
+                    Unlimited Movies, Trailers & Entertainment
+                </p> */}
+
+                {/* navigation */}
+                {/* <div className="flex flex-wrap justify-center gap-8 mt-5">
+
+                    <Link
+                        to="/"
+                        className="text-gray-300 hover:text-red-500 transition"
+                    >
+                        Home
+                    </Link>
+
+                    <Link
+                        to="/movies"
+                        className="text-gray-300 hover:text-red-500 transition"
+                    >
+                        Movies
+                    </Link>
+
+                    <Link
+                        to="/watchlater"
+                        className="text-gray-300 hover:text-red-500 transition"
+                    >
+                        Watch Later
+                    </Link>
+
+                </div> */}

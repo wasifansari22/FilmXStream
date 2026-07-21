@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 import { div, main } from 'framer-motion/client';
+import Footer from '../components/Footer';
 
 const WatchLater = () => {
   const savedMovies = useSelector((state) => state.watchLater.movies);
@@ -46,6 +47,7 @@ const WatchLater = () => {
             )
         }
       </section>
+      <Footer />
     </main>
   )
 }

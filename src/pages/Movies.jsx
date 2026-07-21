@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import { getPopularMovies, getGenres } from "../services/tmdbApi";
 import SearchBar from "../components/SearchBar";
 import GenreFilter from "../components/GenreFilter";
+import Footer from "../components/Footer";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -66,7 +67,9 @@ const Movies = () => {
 
         {/* passing the filtered movies */}
         <MovieGrid movies={filteredMovies} />
+
       </section>
+      <Footer />
     </main>
   )
 }

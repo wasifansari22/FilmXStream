@@ -24,7 +24,7 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl border border-transparent hover:border-red-500 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+        <div className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl hover:shadow-red-600/20 hover:-translate-y-3 hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-red-500 flex flex-col h-full">
             <Link to={`/movie/${movie.id}`}>
                 <div className="relative overflow-hidden">
                     <img
@@ -35,20 +35,21 @@ const MovieCard = ({ movie }) => {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                 </div>
 
-                <div className="p-4 flex-1">
+                <div className="p-4 flex-1 flex flex-col">
                     <h2 className="h-16 font-bold text-lg text-white line-clamp-2 group-hover:text-red-400 transition-colors duration-300">
                         {movie.title}
                     </h2>
-                    <p className="mt-2 text-yellow-400 font-semibold flex items-center gap-1">
-                        ⭐ {movie.vote_average.toFixed(1)}
+                    <p className="mt-auto text-yellow-400 font-semibold flex items-center gap-1">
+                        ⭐ IMDb {movie.vote_average.toFixed(1)}
                     </p>
                 </div>
             </Link>
 
 
             <button onClick={handleWatchLater}
-                className={`w-full flex justify-center items-center gap-2 h-12 rounded-lg font-medium transition-all duration-300 cursor-pointer
-                ${isSaved ? "bg-red-600 hover:bg-red-700" : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white cursor-pointer"
+                className={`w-full h-12 flex justify-center items-center gap-2 font-medium transition-all duration-300 cursor-pointer ${isSaved
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white cursor-pointer"
                     }`}
             >
                 {isSaved ? <FaHeart /> : <FaRegHeart />}

@@ -1,11 +1,31 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <>
-            <p className='flex justify-center'>© 2026 FilmXStream</p>
-        </>
+        <footer className="bg-linear-to-t from-black to-[#111111] border-t border-gray-800">
+            <div className="max-w-7xl mx-auto px-6 py-12">
+
+                {/* logo */}
+                <Link to="/">
+                    <h2 className="text-4xl font-bold text-red-600 text-center">
+                        FilmX<span className='text-white'>Stream</span>
+                    </h2>
+                </Link>
+
+                {/* TMDB attribution */}
+                <p className="text-center text-gray-500 text-sm mt-5">
+                    Movie information provided by TMDB API.
+                </p>
+
+                {/* copyright */}
+                <p className="text-center text-gray-600 text-sm mt-5">
+                    © 2026 FilmXStream. Built with React, Redux Toolkit & Tailwind CSS.
+                </p>
+
+            </div>
+        </footer>
     );
 };
 
