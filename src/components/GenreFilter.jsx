@@ -2,6 +2,7 @@ import React from 'react'
 
 const GenreFilter = ({ genres, selectedGenre, setSelectedGenre, }) => {
     return (
+
         <select
             value={selectedGenre}
             onChange={(e) => setSelectedGenre(e.target.value)}
