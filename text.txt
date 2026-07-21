@@ -134,3 +134,16 @@ footer
                     </Link>
 
                 </div> */}
+
+
+watch later feature
+<p className="text-gray-400 mb-8">
+  Keep track of movies you don't want to miss.
+</p>
+
+{savedMovies.length > 0 && (
+  <p className="text-red-500 font-medium mb-8">
+    {savedMovies.length} Movie
+    {savedMovies.length > 1 ? "s" : ""} Saved
+  </p>
+)}
