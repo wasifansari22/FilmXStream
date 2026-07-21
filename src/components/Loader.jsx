@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import SkeletonCard from './SkeletonCard';
 
 const Loader = () => {
     return (
-        <div className='flex justify-center items-center h-64'>
-            <p className='text-xl'>Loading Movies...</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {Array.from({ length: 10 }).map((_, index) => (
+                <SkeletonCard key={index} />
+            ))}
         </div>
     );
 };
