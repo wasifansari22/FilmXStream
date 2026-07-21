@@ -24,19 +24,22 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="bg-[#1f1f1f] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-all duration-300">
+        <div className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl border border-transparent hover:border-red-500 hover:-translate-y-2 transition-all duration-300 flex flex-col">
             <Link to={`/movie/${movie.id}`}>
-                <img
-                    src={`${imageBaseUrl}${movie.poster_path}`}
-                    alt={movie.title}
-                    className="w-full h-80 object-cover"
-                />
+                <div className="relative overflow-hidden">
+                    <img
+                        src={`${imageBaseUrl}${movie.poster_path}`}
+                        alt={movie.title}
+                        className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+                </div>
 
-                <div className="p-4">
-                    <h2 className="font-bold text-lg line-clamp-2">
+                <div className="p-4 flex-1">
+                    <h2 className="h-16 font-bold text-lg text-white line-clamp-2 group-hover:text-red-400 transition-colors duration-300">
                         {movie.title}
                     </h2>
-                    <p className="mt-2 text-yellow-400">
+                    <p className="mt-2 text-yellow-400 font-semibold flex items-center gap-1">
                         ⭐ {movie.vote_average.toFixed(1)}
                     </p>
                 </div>
@@ -44,7 +47,7 @@ const MovieCard = ({ movie }) => {
 
 
             <button onClick={handleWatchLater}
-                className={`mt-4 w-full flex justify-center items-center gap-2 py-2 rounded-lg transition-all duration-300 cursor-pointer
+                className={`w-full flex justify-center items-center gap-2 h-12 rounded-lg font-medium transition-all duration-300 cursor-pointer
                 ${isSaved ? "bg-red-600 hover:bg-red-700" : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white cursor-pointer"
                     }`}
             >
