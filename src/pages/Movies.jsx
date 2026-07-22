@@ -6,6 +6,7 @@ import { getPopularMovies, getGenres } from "../services/tmdbApi";
 import SearchBar from "../components/SearchBar";
 import GenreFilter from "../components/GenreFilter";
 import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -46,9 +47,7 @@ const Movies = () => {
   });
 
   return (
-    <main className="min-h-screen bg-[#141414] text-white">
-      <Header />
-
+    <Layout className="min-h-screen bg-[#141414] text-white">
       <section className="max-w-7xl mx-auto px-6 pt-28 pb-10">
         <h1 className="text-4xl font-bold mb-8">
           Popular Movies
@@ -69,8 +68,7 @@ const Movies = () => {
         <MovieGrid movies={filteredMovies} />
 
       </section>
-      <Footer />
-    </main>
+    </Layout>
   )
 }
 

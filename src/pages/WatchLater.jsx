@@ -1,17 +1,16 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
-import Footer from '../components/Footer';
 import { FaHeartBroken } from "react-icons/fa";
+import Layout from '../components/Layout';
 
 const WatchLater = () => {
   const savedMovies = useSelector((state) => state.watchLater.movies);
 
   return (
-    <main className='min-h-screen bg-[#141414] text-white flex flex-col'>
-      <Header />
+    <Layout className='min-h-screen bg-[#141414] text-white flex flex-col'>
+
 
       <section className='flex-1 pt-28 pb-10'>
         <div className="max-w-7xl mx-auto px-6">
@@ -73,8 +72,8 @@ const WatchLater = () => {
         </div>
       </section>
 
-      <Footer />
-    </main>
+
+    </Layout>
   )
 }
 
