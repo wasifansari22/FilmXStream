@@ -7,6 +7,7 @@ import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
+import MoviePoster from '../components/MoviePoster';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -105,9 +106,9 @@ const MovieDetails = () => {
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="-mt-40 relative z-20 flex flex-col md:flex-row gap-10">
-          <img
-            src={`${imageBaseUrl}${movie.poster_path}`}
-            alt={movie.title}
+          <MoviePoster
+            posterPath={movie.poster_path}
+            title={movie.title}
             className="w-72 rounded-xl shadow-2xl"
           />
 

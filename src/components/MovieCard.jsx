@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addMovie, removeMovie } from '../redux/slices/watchLaterSlice';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import MoviePoster from './MoviePoster';
 
 const MovieCard = ({ movie }) => {
     // change redux state
@@ -27,11 +28,13 @@ const MovieCard = ({ movie }) => {
         <div className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl hover:shadow-red-600/20 hover:-translate-y-3 hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-red-500 flex flex-col h-full">
             <Link to={`/movie/${movie.id}`}>
                 <div className="relative overflow-hidden">
-                    <img
-                        src={`${imageBaseUrl}${movie.poster_path}`}
-                        alt={movie.title}
-                        className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+
+                    <MoviePoster
+                        posterPath={movie.poster_path}
+                        title={movie.title}
+                        className="h-80"
                     />
+
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                 </div>
 
