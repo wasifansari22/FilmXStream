@@ -21,11 +21,11 @@ const Header = () => {
 
                     <Link
                         to="/watchlater"
-                        className="flex items-center gap-2 border border-red-600 px-3 md:px-5 py-2 rounded-md text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 text-sm md:text-base"
+                        className="relative flex items-center gap-2 border border-red-600 px-5 py-2 rounded-md text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300"
                     >  <FaHeart />
                         Watch Later
                         {savedMovies.length > 0 && (
-                            <span className="flex items-center justify-center bg-white text-red-500 text-xs font-bold w-5 h-5 rounded-full">
+                            <span className="absolute -top-2 -right-2 flex items-center justify-center bg-red-600 text-white text-xs font-bold w-6 h-6 rounded-full">
                                 {savedMovies.length}
                             </span>
                         )}
