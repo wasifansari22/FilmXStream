@@ -7,6 +7,7 @@ import SearchBar from "../components/SearchBar";
 import GenreFilter from "../components/GenreFilter";
 import Footer from "../components/Footer";
 import Layout from "../components/Layout";
+import PageHeader from "../components/PageHeader";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -49,9 +50,14 @@ const Movies = () => {
   return (
     <Layout className="min-h-screen bg-[#141414] text-white">
       <section className="max-w-7xl mx-auto px-6 pt-28 pb-10">
-        <h1 className="text-4xl font-bold mb-8">
+        {/* <h1 className="text-4xl font-bold mb-8">
           Popular Movies
-        </h1>
+        </h1> */}
+
+        <PageHeader
+          title="Popular Movies"
+          subtitle="Discover trending movies from around the world."
+        />
 
         <SearchBar
           searchTerm={searchTerm}
@@ -69,7 +75,7 @@ const Movies = () => {
 
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Movies
+export default Movies;

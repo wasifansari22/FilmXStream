@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { FaHeartBroken } from "react-icons/fa";
 import Layout from '../components/Layout';
+import PageHeader from "../components/PageHeader";
 
 const WatchLater = () => {
   const savedMovies = useSelector((state) => state.watchLater.movies);
@@ -14,10 +15,18 @@ const WatchLater = () => {
 
       <section className='flex-1 pt-28 pb-10'>
         <div className="max-w-7xl mx-auto px-6">
-
-
-          <h1 className='text-4xl font-bold mb-3'>Watch Later</h1>
-          <p className="text-gray-400 mb-8">Keep track of movies you don't want to miss.</p>
+          {/* <h1 className='text-4xl font-bold mb-3'>Watch Later</h1>
+          <p className="text-gray-400 mb-8">Keep track of movies you don't want to miss.</p> */}
+          <PageHeader
+            title="❤️ Watch Later"
+            subtitle="Keep track of movies you don't want to miss."
+          >
+            {savedMovies.length > 0 && (
+              <p className="text-red-500 font-semibold">
+                {savedMovies.length} Movie{savedMovies.length !== 1 ? "s" : ""} Saved
+              </p>
+            )}
+          </PageHeader>
 
           {savedMovies.length > 0 && (
             <div className="mb-5">
