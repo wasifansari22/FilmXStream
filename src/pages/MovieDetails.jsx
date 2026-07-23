@@ -105,13 +105,16 @@ const MovieDetails = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6">
-
         <div className="-mt-40 relative z-20 flex flex-col md:flex-row gap-10">
-          <MoviePoster
-            posterPath={movie.poster_path}
-            title={movie.title}
-            className="w-72 rounded-xl shadow-2xl"
-          />
+          
+          <div className="w-72 h-420px rounded-xl overflow-hidden shadow-2xl flex shrink-0">
+            <MoviePoster
+              posterPath={movie.poster_path}
+              title={movie.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
 
           <div>
             <h1 className="text-5xl font-bold">
@@ -146,18 +149,6 @@ const MovieDetails = () => {
             </p>
 
             <div className="flex items-center gap-5">
-              {/* trailer button - if there is trailer available the button have cursor pointer or else not-allowed */}
-              {/* <button
-                disabled={!trailerKey}
-                onClick={() => setShowTrailer(true)}
-                className={`px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 outline-1 ${trailerKey
-                  ? "bg-white text-black hover:bg-gray-200 cursor-pointer"
-                  : "bg-gray-600 text-gray-300 cursor-not-allowed"
-                  }`}
-              >
-                ▶ Watch Trailer
-              </button> */}
-
               <Button
                 variant="secondary"
                 disabled={!trailerKey}
