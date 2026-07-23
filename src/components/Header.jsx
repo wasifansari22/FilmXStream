@@ -10,9 +10,9 @@ const Header = () => {
 
     return (
         <header className="absolute top-0 left-0 w-full z-50">
-            <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
                 <Link to="/" >
-                    <h1 className="text-red-600 text-3xl md:text-4xl font-bold tracking-wide">
+                    <h1 className="text-red-600 text-3xl sm:text-3xl md:text-4xl font-bold tracking-wide">
                         FilmX<span className='text-white'>Stream</span>
                     </h1>
                 </Link>
@@ -21,9 +21,10 @@ const Header = () => {
 
                     <Link
                         to="/watchlater"
-                        className="relative flex items-center gap-2 border border-red-600 px-5 py-2 rounded-md text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300"
+                        className="relative flex items-center justify-center gap-2 border border-red-600 px-3 py-2 sm:px-5 sm:py-2 rounded-lg text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300"
                     >  <FaHeart />
-                        Watch Later
+                        {/* <span className="sm:hidden">Saved</span> */}
+                        <span className='hidden sm:inline'>Watch Later</span>
                         {savedMovies.length > 0 && (
                             <span className="absolute -top-2 -right-2 flex items-center justify-center bg-red-600 text-white text-xs font-bold w-6 h-6 rounded-full">
                                 {savedMovies.length}
