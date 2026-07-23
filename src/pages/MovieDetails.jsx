@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
 import Button from '../components/Button';
+import Loader from '../components/Loader';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -77,9 +78,10 @@ const MovieDetails = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#141414] text-white flex justify-center items-center">
-        Loading...
-      </div>
+      <main className="min-h-screen bg-[#141414] text-white">
+        <Header />
+        <Loader type="details" />
+      </main>
     );
   }
 
@@ -106,7 +108,7 @@ const MovieDetails = () => {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="-mt-32 md:-mt-40 relative z-20 flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start">
-          
+
           <div className="w-72 h-420px rounded-xl overflow-hidden shadow-2xl flex shrink-0">
             <MoviePoster
               posterPath={movie.poster_path}
