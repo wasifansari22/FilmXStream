@@ -105,19 +105,19 @@ const MovieDetails = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="-mt-40 relative z-20 flex flex-col md:flex-row gap-10">
+        <div className="-mt-32 md:-mt-40 relative z-20 flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start">
           
           <div className="w-72 h-420px rounded-xl overflow-hidden shadow-2xl flex shrink-0">
             <MoviePoster
               posterPath={movie.poster_path}
               title={movie.title}
-              className="w-full h-full object-cover"
+              className="w-48 sm:w-56 md:w-72 h-300px sm:h-360px md:h-430px object-cover rounded-xl shadow-2xl mx-auto md:mx-0"
             />
           </div>
 
 
-          <div>
-            <h1 className="text-5xl font-bold">
+          <div className='text-center md:text-left flex-1'>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               {movie.title}
             </h1>
 
@@ -133,7 +133,7 @@ const MovieDetails = () => {
               Runtime: {movie.runtime} min
             </p>
 
-            <div className="flex flex-wrap gap-2 mt-6">
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
               {movie.genres.map((genre) => (
                 <span
                   key={genre.id}
@@ -144,11 +144,11 @@ const MovieDetails = () => {
               ))}
             </div>
 
-            <p className="mt-8 mb-4 leading-8 text-gray-300">
+            <p className="mt-8 mb-4 leading-8 text-gray-300 max-w-3xl">
               {movie.overview}
             </p>
 
-            <div className="flex items-center gap-5">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button
                 variant="secondary"
                 disabled={!trailerKey}
