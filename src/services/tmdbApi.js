@@ -3,55 +3,64 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 export const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
 
-// Later combining both
-// https://image.tmdb.org/t/p/w500/poster123.jpg
+const api = axios.create({
+    baseURL: BASE_URL,
+    params: {
+        api_key: API_KEY,
+    },
+    timeout: 10000,
+});
+
+const ENDPOINTS = {
+    POPULAR: "/movie/popular",
+    GENRES: "/genre/movie/list",
+    DETAILS: (id) => `/movie/${id}`,
+    VIDEOS: (id) => `/movie/${id}/videos`,
+};
+
+const fetchData = async (url) => {
+    try {
+        const { data } = await api.get(url);
+        return data;
+    } catch (error) {
+        if (error.response) {
+            console.error(
+                `TMDB Error ${error.response.status}:`,
+                error.response.data
+            );
+        } else if (error.request) {
+            console.error("Network Error");
+        } else {
+            console.error(error.message);
+        }
+        throw error;
+    }
+};
 
 // API function
 export const getPopularMovies = async () => {
-    try {
-        const response = await axios.get(
-            `${BASE_URL}/movie/popular?api_key=${API_KEY}`
-        );
-        return response.data.results;
-    } catch (error) {
-        console.error("Error fetching movies:", error);
-        throw error;
-    }
+    const data = await fetchData(
+        ENDPOINTS.POPULAR
+    );
+    return data.results;
 };
 
-export const getMovieDetails = async (movieId) => {
-    try {
-        const response = await axios.get(
-            `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
-        );
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching movie details:", error);
-        throw error;
-    }
+export const getMovieDetails = async (id) => {
+    return await fetchData(
+        ENDPOINTS.DETAILS(id)
+    );
 };
 
-export const getMovieTrailer = async (movieId) => {
-    try {
-        const response = await axios.get(
-            `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`
-        );
-        return response.data.results;
-    } catch (error) {
-        console.error("Error fetching trailer:", error);
-        return [];
-    }
+export const getMovieTrailer = async (id) => {
+    const data = await fetchData(
+        ENDPOINTS.VIDEOS(id)
+    );
+    return data.results;
 };
 
 export const getGenres = async () => {
-    try {
-        const response = await axios.get(
-            `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
-        );
-
-        return response.data.genres;
-    } catch (error) {
-        console.error("Error fetching genres:", error);
-        return [];
-    }
+    const data = await fetchData(
+        ENDPOINTS.GENRES
+    );
+    return data.genres;
 };

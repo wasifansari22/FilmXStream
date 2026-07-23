@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 import MovieGrid from "../components/MovieGrid";
 import Loader from "../components/Loader";
 import { getPopularMovies, getGenres } from "../services/tmdbApi";
 import SearchBar from "../components/SearchBar";
 import GenreFilter from "../components/GenreFilter";
-import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 
@@ -41,7 +39,7 @@ const Movies = () => {
   }
 
   // filtered movies - converts the movie title to lowercase. eg: bat: Batman Begins, The Batman....
-  const filteredMovies = movies.filter((movie) => {
+  const filteredMovies = (movies || []).filter((movie) => {
     const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesGenre = selectedGenre === "" || movie.genre_ids.includes(Number(selectedGenre));
     return matchesSearch && matchesGenre;
