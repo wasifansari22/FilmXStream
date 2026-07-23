@@ -13,8 +13,6 @@ const WatchLater = () => {
 
   return (
     <Layout className='min-h-screen bg-[#141414] text-white flex flex-col'>
-
-
       <section className='flex-1 pt-28 pb-10'>
         <div className="max-w-7xl mx-auto px-6">
           {/* <h1 className='text-4xl font-bold mb-3'>Watch Later</h1>
@@ -43,30 +41,6 @@ const WatchLater = () => {
 
           {
             savedMovies.length === 0 ? (
-              // <div className="flex items-center justify-center min-h-[60vh]">
-              //   <div className="text-center max-w-lg">
-
-              //     <div className="w-24 h-24 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-8">
-              //       <FaHeartBroken className="text-red-500 text-5xl" />
-              //     </div>
-
-              //     <h2 className="text-4xl font-bold">
-              //       Your Watch Later List is Empty
-              //     </h2>
-
-              //     <p className="text-gray-400 mt-5">
-              //       Save your favourite movies to watch later.
-              //       Your saved movies will appear here.
-              //     </p>
-
-              //     <Link to="/movies">
-              //       <Button variant="primary" className='mt-5'>
-              //         Browse Movies
-              //       </Button>
-              //     </Link>
-
-              //   </div>
-              // </div>
               <EmptyState
                 icon={
                   <FaHeartBroken className="text-red-500 text-5xl" />

@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar";
 import GenreFilter from "../components/GenreFilter";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
+import EmptyState from "../components/EmptyState";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -71,8 +72,22 @@ const Movies = () => {
           />
         </div>
 
+        {
+          filteredMovies.length === 0 ? (
+            <EmptyState
+              title="No Movies Found"
+              description="Try searching another movie or select a different genre."
+              buttonText="Clear Filters"
+              buttonLink="/movies"
+            />
+
+          ) : (
+            <MovieGrid movies={filteredMovies} />
+          )
+        }
+
         {/* passing the filtered movies */}
-        <MovieGrid movies={filteredMovies} />
+        {/* <MovieGrid movies={filteredMovies} /> */}
 
       </section>
     </Layout>

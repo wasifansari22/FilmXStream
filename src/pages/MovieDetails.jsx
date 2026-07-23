@@ -10,6 +10,7 @@ import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
 import Button from '../components/Button';
 import Loader from '../components/Loader';
+import EmptyState from '../components/EmptyState';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -85,13 +86,12 @@ const MovieDetails = () => {
     );
   }
 
-  if (!movie) {
-    return (
-      <div className="min-h-screen bg-[#141414] flex justify-center items-center text-white">
-        Movie not found.
-      </div>
-    );
-  }
+  <EmptyState
+    title="Movie Not Found"
+    description="The movie you're looking for doesn't exist or has been removed."
+    buttonText="Browse Movies"
+    buttonLink="/movies"
+  />
 
   return (
     <main className="min-h-screen bg-[#141414] text-white">
