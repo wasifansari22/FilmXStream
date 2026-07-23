@@ -2,11 +2,10 @@ import React from 'react'
 
 const GenreFilter = ({ genres, selectedGenre, setSelectedGenre, }) => {
     return (
-
         <select
             value={selectedGenre}
             onChange={(e) => setSelectedGenre(e.target.value)}
-            className="w-full md:w-60 bg-[#1f1f1f] border border-gray-700 rounded-lg px-4 py-3 ml-7 text-white outline-none focus:border-red-500 transition-all"
+            className="w-full md:w-64 bg-[#1f1f1f] border border-gray-700 rounded-lg px-4 py-3 text-white outline-none focus:border-red-500 transition-all cursor-pointer"
         >
             <option value="">All Genres</option>
 

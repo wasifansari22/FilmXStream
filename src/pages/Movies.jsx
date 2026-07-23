@@ -57,16 +57,19 @@ const Movies = () => {
           subtitle="Discover trending movies from around the world."
         />
 
-        <SearchBar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
+        {/* as one */}
+        <div className="flex flex-col md:flex-row gap-5 mb-10">
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
 
-        <GenreFilter
-          genres={genres}
-          selectedGenre={selectedGenre}
-          setSelectedGenre={setSelectedGenre}
-        />
+          <GenreFilter
+            genres={genres}
+            selectedGenre={selectedGenre}
+            setSelectedGenre={setSelectedGenre}
+          />
+        </div>
 
         {/* passing the filtered movies */}
         <MovieGrid movies={filteredMovies} />
