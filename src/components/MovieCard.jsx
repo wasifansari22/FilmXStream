@@ -5,6 +5,7 @@ import { addMovie, removeMovie } from '../redux/slices/watchLaterSlice';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import MoviePoster from './MoviePoster';
+import Button from '../components/Button';
 
 const MovieCard = ({ movie }) => {
     // change redux state
@@ -48,17 +49,14 @@ const MovieCard = ({ movie }) => {
                 </div>
             </Link>
 
-
-            <button onClick={handleWatchLater}
-                className={`w-full h-12 flex justify-center items-center gap-2 font-medium transition-all duration-300 cursor-pointer ${isSaved
-                    ? "bg-red-600 hover:bg-red-700"
-                    : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white cursor-pointer"
-                    }`}
+            <Button
+                variant={isSaved ? "danger" : "outline"}
+                onClick={handleWatchLater}
+                className="w-full"
             >
                 {isSaved ? <FaHeart /> : <FaRegHeart />}
                 {isSaved ? "Saved" : "Watch Later"}
-            </button>
-
+            </Button>
 
         </div>
     );

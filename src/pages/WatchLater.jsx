@@ -5,6 +5,7 @@ import MovieCard from "../components/MovieCard";
 import { FaHeartBroken } from "react-icons/fa";
 import Layout from '../components/Layout';
 import PageHeader from "../components/PageHeader";
+import Button from '../components/Button';
 
 const WatchLater = () => {
   const savedMovies = useSelector((state) => state.watchLater.movies);
@@ -57,12 +58,12 @@ const WatchLater = () => {
                     Your saved movies will appear here.
                   </p>
 
-                  <Link
-                    to="/movies"
-                    className="inline-block mt-10 bg-red-600 hover:bg-red-700 transition-all duration-300 px-8 py-4 rounded-lg font-semibold"
-                  >
-                    Browse Movies
+                  <Link to="/movies">
+                    <Button variant="primary" className='mt-5'>
+                      Browse Movies
+                    </Button>
                   </Link>
+
                 </div>
               </div>
             ) :

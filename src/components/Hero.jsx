@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import heroImage from '../assets/images/hero.jpg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import heroImage from '../assets/images/hero.jpg';
+import Button from '../components/Button';
 
 const Hero = () => {
     return (
@@ -18,12 +19,12 @@ const Hero = () => {
                         Watch anywhere. Cancel anytime.
                     </p>
 
-                    <Link
-                        to="/movies"
-                        className="mt-10 bg-red-600 hover:bg-red-700 hover:scale-105 transition-all duration-300 px-8 py-4 rounded-lg text-lg font-semibold shadow-xl"
-                    >
-                        Start Watching
+                    <Link to="/movies">
+                        <Button variant="primary" className='mt-10 hover:scale-105 transition-all duration-300 px-8 py-4 rounded-lg text-lg font-semibold shadow-xl cursor-pointer'>
+                            Start Watching
+                        </Button>
                     </Link>
+
                 </div>
             </section>
         </>

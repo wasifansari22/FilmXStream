@@ -8,6 +8,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
+import Button from '../components/Button';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -146,7 +147,7 @@ const MovieDetails = () => {
 
             <div className="flex items-center gap-5">
               {/* trailer button - if there is trailer available the button have cursor pointer or else not-allowed */}
-              <button
+              {/* <button
                 disabled={!trailerKey}
                 onClick={() => setShowTrailer(true)}
                 className={`px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 outline-1 ${trailerKey
@@ -155,7 +156,15 @@ const MovieDetails = () => {
                   }`}
               >
                 ▶ Watch Trailer
-              </button>
+              </button> */}
+
+              <Button
+                variant="secondary"
+                disabled={!trailerKey}
+                onClick={() => setShowTrailer(true)}
+              >
+                ▶ Watch Trailer
+              </Button>
 
               {/* watch later button */}
               <button
@@ -193,7 +202,7 @@ const MovieDetails = () => {
       <div className="mt-20">
         <Footer />
       </div>
-    </main>
+    </main >
   );
 };
 

@@ -147,3 +147,15 @@ watch later feature
     {savedMovies.length > 1 ? "s" : ""} Saved
   </p>
 )}
+
+Watch later button from movie Card page
+   {/* <button onClick={handleWatchLater}
+                className={`w-full h-12 flex justify-center items-center gap-2 font-medium transition-all duration-300 cursor-pointer ${isSaved
+                    ? "bg-red-600 hover:bg-red-700"
+                    : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white cursor-pointer"
+                    }`}
+            >
+                {isSaved ? <FaHeart /> : <FaRegHeart />}
+                {isSaved ? "Saved" : "Watch Later"}
+            </button> */}
+
