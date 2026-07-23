@@ -6,6 +6,7 @@ import { FaHeartBroken } from "react-icons/fa";
 import Layout from '../components/Layout';
 import PageHeader from "../components/PageHeader";
 import Button from '../components/Button';
+import EmptyState from "../components/EmptyState";
 
 const WatchLater = () => {
   const savedMovies = useSelector((state) => state.watchLater.movies);
@@ -42,30 +43,39 @@ const WatchLater = () => {
 
           {
             savedMovies.length === 0 ? (
-              <div className="flex items-center justify-center min-h-[60vh]">
-                <div className="text-center max-w-lg">
+              // <div className="flex items-center justify-center min-h-[60vh]">
+              //   <div className="text-center max-w-lg">
 
-                  <div className="w-24 h-24 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-8">
-                    <FaHeartBroken className="text-red-500 text-5xl" />
-                  </div>
+              //     <div className="w-24 h-24 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-8">
+              //       <FaHeartBroken className="text-red-500 text-5xl" />
+              //     </div>
 
-                  <h2 className="text-4xl font-bold">
-                    Your Watch Later List is Empty
-                  </h2>
+              //     <h2 className="text-4xl font-bold">
+              //       Your Watch Later List is Empty
+              //     </h2>
 
-                  <p className="text-gray-400 mt-5">
-                    Save your favourite movies to watch later.
-                    Your saved movies will appear here.
-                  </p>
+              //     <p className="text-gray-400 mt-5">
+              //       Save your favourite movies to watch later.
+              //       Your saved movies will appear here.
+              //     </p>
 
-                  <Link to="/movies">
-                    <Button variant="primary" className='mt-5'>
-                      Browse Movies
-                    </Button>
-                  </Link>
+              //     <Link to="/movies">
+              //       <Button variant="primary" className='mt-5'>
+              //         Browse Movies
+              //       </Button>
+              //     </Link>
 
-                </div>
-              </div>
+              //   </div>
+              // </div>
+              <EmptyState
+                icon={
+                  <FaHeartBroken className="text-red-500 text-5xl" />
+                }
+                title="Your Watch Later List is Empty"
+                description="Save your favourite movies to watch later. Your saved movies will appear here."
+                buttonText="Browse Movies"
+                buttonLink="/movies"
+              />
             ) :
               (
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
