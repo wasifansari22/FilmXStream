@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import { getMovieDetails, imageBaseUrl, getMovieTrailer } from '../services/tmdbApi';
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaFilm } from "react-icons/fa";
 import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
@@ -86,12 +86,19 @@ const MovieDetails = () => {
     );
   }
 
-  <EmptyState
-    title="Movie Not Found"
-    description="The movie you're looking for doesn't exist or has been removed."
-    buttonText="Browse Movies"
-    buttonLink="/movies"
-  />
+  if (!movie) {
+    return (
+      <Layout>
+        <EmptyState
+          icon={<FaFilm className="text-red-500 text-5xl" />}
+          title="Movie Not Found"
+          description="This movie doesn't exist or is no longer available."
+          buttonText="Browse Movies"
+          buttonLink="/movies"
+        />
+      </Layout>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-[#141414] text-white">

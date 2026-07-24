@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaHeartBroken } from "react-icons/fa";
 
 const EmptyState = ({ icon, title, description, buttonText, buttonLink, onButtonClick, }) => {
     return (
@@ -8,8 +7,7 @@ const EmptyState = ({ icon, title, description, buttonText, buttonLink, onButton
 
                 {icon && (
                     <div className="w-24 h-24 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-8">
-                        {/* {icon} */}
-                        <FaHeartBroken className="text-red-500 text-5xl" />
+                        {icon}
                     </div>
                 )}
 

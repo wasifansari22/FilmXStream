@@ -7,7 +7,7 @@ import GenreFilter from "../components/GenreFilter";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import EmptyState from "../components/EmptyState";
-import { FaHeartBroken } from "react-icons/fa";
+import { FaFilm, FaHeartBroken } from "react-icons/fa";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -50,12 +50,9 @@ const Movies = () => {
   return (
     <Layout className="min-h-screen bg-[#141414] text-white">
       <section className="max-w-7xl mx-auto px-6 pt-28 pb-10">
-        {/* <h1 className="text-4xl font-bold mb-8">
-          Popular Movies
-        </h1> */}
 
         <PageHeader
-          title="Popular Movies"
+          title="🎬 Popular Movies"
           subtitle="Discover trending movies from around the world."
         />
 
@@ -76,9 +73,9 @@ const Movies = () => {
         {
           filteredMovies.length === 0 ? (
             <EmptyState
-            icon={<FaHeartBroken className="text-red-500 text-5xl"/>}
-              title="No Movies Found"
-              description="Try another movie name or choose a different genre."
+              icon={<FaFilm className="text-red-500 text-5xl" />}
+              title="Movie Not Found"
+              description="This movie doesn't exist or is no longer available."
               buttonText="Clear Filters"
               onButtonClick={() => {
                 setSearchTerm("");
