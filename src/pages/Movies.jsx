@@ -7,6 +7,7 @@ import GenreFilter from "../components/GenreFilter";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import EmptyState from "../components/EmptyState";
+import { FaHeartBroken } from "react-icons/fa";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -75,12 +76,15 @@ const Movies = () => {
         {
           filteredMovies.length === 0 ? (
             <EmptyState
+            icon={<FaHeartBroken className="text-red-500 text-5xl"/>}
               title="No Movies Found"
-              description="Try searching another movie or select a different genre."
+              description="Try another movie name or choose a different genre."
               buttonText="Clear Filters"
-              buttonLink="/movies"
+              onButtonClick={() => {
+                setSearchTerm("");
+                setSelectedGenre("");
+              }}
             />
-
           ) : (
             <MovieGrid movies={filteredMovies} />
           )
