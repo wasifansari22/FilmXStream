@@ -6,7 +6,7 @@ const MoviePoster = ({ posterPath, title, className = "", }) => {
 
     const imageSrc = posterPath
         ? `${imageBaseUrl}${posterPath}`
-        : "/movie_poster.png";
+        : "/placeholder_movie_poster.png";
 
     return (
         <div className={`relative overflow-hidden ${className}`}>
