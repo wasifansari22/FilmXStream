@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
-import { FaHeartBroken } from "react-icons/fa";
+import { FaHeartBroken, FaArrowLeft } from "react-icons/fa";
 import Layout from '../components/Layout';
 import PageHeader from "../components/PageHeader";
 import Button from '../components/Button';
@@ -34,7 +34,7 @@ const WatchLater = () => {
                 to="/movies"
                 className="inline-flex items-center text-red-500 hover:text-white transition-all duration-300"
               >
-                ← Back to Movies
+                <FaArrowLeft /> &nbsp; Back to Movies
               </Link>
             </div>
           )}

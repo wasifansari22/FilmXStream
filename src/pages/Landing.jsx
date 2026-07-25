@@ -1,20 +1,21 @@
 import React from 'react';
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import Features from '../components/Features';
 import TrendingPreview from '../components/TrendingPreview';
+import Layout from '../components/Layout';
 
 const Landing = () => {
   return (
-    <>
-      <Header />
+    <Layout>
+      {/* <Header /> */}
       <Hero />
       <Features />
       <TrendingPreview />
-      <Footer />
-    </>
-  )
-}
+      {/* <Footer /> */}
+    </Layout>
+  );
+};  
 
-export default Landing
+export default Landing;

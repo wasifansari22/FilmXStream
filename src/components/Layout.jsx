@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import BackToTop from "./BackToTop";
 
 const Layout = ({ children }) => {
     return (
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
                 {children}
             </div>
 
+            <BackToTop />
             <Footer />
 
         </main>

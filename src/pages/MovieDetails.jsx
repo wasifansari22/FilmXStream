@@ -4,13 +4,14 @@ import Header from '../components/Header';
 import { getMovieDetails, imageBaseUrl, getMovieTrailer } from '../services/tmdbApi';
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
-import { FaHeart, FaRegHeart, FaFilm } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaFilm, FaArrowLeft } from "react-icons/fa";
 import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
 import Button from '../components/Button';
 import Loader from '../components/Loader';
 import EmptyState from '../components/EmptyState';
+import Layout from '../components/Layout';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -79,10 +80,9 @@ const MovieDetails = () => {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#141414] text-white">
-        <Header />
+      <Layout>
         <Loader type="details" />
-      </main>
+      </Layout>
     );
   }
 
@@ -101,19 +101,18 @@ const MovieDetails = () => {
   }
 
   return (
-    <main className="min-h-screen bg-[#141414] text-white">
+    <Layout className="min-h-screen bg-[#141414] text-white">
 
       <div
-        className="relative h-[65vh] bg-cover bg-center"
+        className="relative pt-20 h-[65vh] bg-cover bg-center"
         style={{
           backgroundImage: `url(${imageBaseUrl}${movie.backdrop_path})`,
         }}
       >
         <div className="absolute inset-0 bg-black/70"></div>
-        <Header />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 pb-20">
         <div className="-mt-32 md:-mt-40 relative z-20 flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start">
 
           <div className="w-72 h-420px rounded-xl overflow-hidden shadow-2xl flex shrink-0">
@@ -185,7 +184,7 @@ const MovieDetails = () => {
                 to="/movies"
                 className="inline-flex items-center text-red-500 hover:text-white transition-all duration-300"
               >
-                ← Back to Movies
+                <FaArrowLeft /> &nbsp; Back to Movies
               </Link>
             </div>
 
@@ -199,10 +198,7 @@ const MovieDetails = () => {
         trailerKey={showTrailer ? trailerKey : ""}
         onClose={() => setShowTrailer(false)} />
 
-      <div className="mt-20">
-        <Footer />
-      </div>
-    </main >
+    </Layout >
   );
 };
 
