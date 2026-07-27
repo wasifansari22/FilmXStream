@@ -75,7 +75,15 @@ const Movies = () => {
             <EmptyState
               icon={<FaFilm className="text-red-500 text-5xl" />}
               title="Movie Not Found"
-              description="This movie doesn't exist or is no longer available."
+              description={
+                searchTerm && selectedGenre
+                  ? "No movies match your search and selected genre."
+                  : searchTerm
+                    ? `No movies found for "${searchTerm}".`
+                    : selectedGenre
+                      ? "No movies found in this genre."
+                      : "No movies available."
+              }
               buttonText="Clear Filters"
               onButtonClick={() => {
                 setSearchTerm("");
