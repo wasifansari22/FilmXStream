@@ -67,7 +67,7 @@ const MovieCard = ({ movie }) => {
             <Button
                 variant={isSaved ? "danger" : "outline"}
                 onClick={handleWatchLater}
-                className="w-full"
+                className="w-full h-13"
             >
                 {isSaved ? <FaHeart /> : <FaRegHeart />}
                 {isSaved ? "Saved" : "Watch Later"}
