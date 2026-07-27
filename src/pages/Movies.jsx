@@ -52,7 +52,7 @@ const Movies = () => {
       <section className="max-w-7xl mx-auto px-6 pt-28 pb-10">
 
         <PageHeader
-          title="🎬 Popular Movies"
+          title="Popular Movies"
           subtitle="Discover trending movies from around the world."
         />
 

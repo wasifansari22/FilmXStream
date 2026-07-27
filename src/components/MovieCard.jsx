@@ -59,7 +59,7 @@ const MovieCard = ({ movie }) => {
                         {movie.title}
                     </h2>
                     <p className="mt-auto text-yellow-400 font-semibold flex items-center gap-1">
-                        ⭐ IMDb {movie.vote_average.toFixed(1)}
+                        ⭐ {movie.vote_average.toFixed(1)} / 10
                     </p>
                 </div>
             </Link>
