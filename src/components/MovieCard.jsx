@@ -6,6 +6,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import MoviePoster from './MoviePoster';
 import Button from '../components/Button';
+import { motion } from "framer-motion";
 
 const MovieCard = ({ movie }) => {
     // change redux state
@@ -26,7 +27,18 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl hover:shadow-red-600/20 hover:-translate-y-3 hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-red-500 flex flex-col h-full">
+        <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+                duration: 0.4,
+            }}
+            whileHover={{
+                scale: 1.04,
+                y: -6,
+            }}
+            className="group bg-[#1b1b1b] rounded-xl overflow-hidden shadow-xl">
             <Link to={`/movie/${movie.id}`}>
                 <div className="relative overflow-hidden">
 
@@ -58,7 +70,7 @@ const MovieCard = ({ movie }) => {
                 {isSaved ? "Saved" : "Watch Later"}
             </Button>
 
-        </div>
+        </motion.div>
     );
 };
 

@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import BackToTop from "./BackToTop";
+import PageTransition from "./PageTransition";
 
 const Layout = ({ children }) => {
     return (
@@ -8,9 +9,11 @@ const Layout = ({ children }) => {
 
             <Header />
 
-            <div className="flex-1">
-                {children}
-            </div>
+            <PageTransition>
+                <div className="flex-1">
+                    {children}
+                </div>
+            </PageTransition>
 
             <BackToTop />
             <Footer />
