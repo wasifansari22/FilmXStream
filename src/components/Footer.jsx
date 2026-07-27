@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -27,7 +26,7 @@ const Footer = () => {
 
                 {/* copyright */}
                 <p className="text-center text-gray-600 text-sm mt-5">
-                    © 2026 FilmXStream. Built with React, Redux Toolkit & Tailwind CSS.
+                    © 2026 FilmXStream. All Rights Reserved. Built with React, Redux Toolkit & Tailwind CSS.
                 </p>
             </div>
         </footer>
