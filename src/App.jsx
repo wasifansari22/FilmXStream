@@ -7,12 +7,23 @@ import WatchLater from "./pages/WatchLater";
 import Filter from "./pages/Filter";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "#1f1f1f",
+            color: "#fff",
+            border: "1px solid #dc2626",
+          },
+        }}
+      />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/movies" element={<Movies />} />

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import MoviePoster from './MoviePoster';
 import Button from '../components/Button';
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const MovieCard = ({ movie }) => {
     // change redux state
@@ -21,8 +22,10 @@ const MovieCard = ({ movie }) => {
     const handleWatchLater = () => {
         if (isSaved) {
             dispatch(removeMovie(movie.id));
+            toast("💔 Removed from Watch Later");
         } else {
             dispatch(addMovie(movie));
+            toast.success("Added to Watch Later");
         }
     };
 
