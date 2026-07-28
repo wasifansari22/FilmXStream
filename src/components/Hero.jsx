@@ -16,7 +16,7 @@ const Hero = () => {
                     </h1>
 
                     <p className="mt-6 text-lg sm:text-xl md:text-2xl max-w-2xl text-gray-300 leading-relaxed">
-                        Watch anywhere. Cancel anytime.
+                        Stream everywhere. No strings attached.
                     </p>
 
                     <Link to="/movies">

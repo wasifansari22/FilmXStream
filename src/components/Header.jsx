@@ -38,10 +38,8 @@ const Header = () => {
 
                     <Link
                         to="/watchlater"
-                        // className="relative flex items-center justify-center gap-2 border border-red-600 px-3 py-2 sm:px-5 sm:py-2 rounded-lg text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300"
                         className="relative flex items-center gap-2 border border-red-600 px-3 sm:px-5 py-2 rounded-md text-sm sm:text-base text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300"
                     >  <FaHeart />
-                        {/* <span className="sm:hidden">Saved</span> */}
                         <span className='hidden sm:inline'>Watch Later</span>
                         {savedMovies.length > 0 && (
                             <span className="absolute -top-2 -right-2 flex items-center justify-center bg-red-600 text-white text-xs font-bold w-6 h-6 rounded-full">

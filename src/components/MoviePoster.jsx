@@ -11,7 +11,6 @@ const MoviePoster = ({ posterPath, title, className = "", }) => {
     return (
         <div className={`relative overflow-hidden ${className}`}>
 
-            {/* Loading Skeleton */}
             {!loaded && (
                 <div className="absolute inset-0 animate-pulse bg-neutral-800" />
             )}

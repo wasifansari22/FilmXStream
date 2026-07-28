@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Header from '../components/Header';
 import { getMovieDetails, imageBaseUrl, getMovieTrailer } from '../services/tmdbApi';
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../redux/slices/watchLaterSlice";
 import { FaHeart, FaRegHeart, FaFilm, FaArrowLeft } from "react-icons/fa";
-import Footer from '../components/Footer';
 import TrailerModal from '../components/TrailerModal';
 import MoviePoster from '../components/MoviePoster';
 import Button from '../components/Button';

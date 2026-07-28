@@ -35,12 +35,10 @@ const Movies = () => {
     }
   };
 
-  // display loader
   if (loading) {
     return <Loader />;
   }
 
-  // filtered movies - converts the movie title to lowercase. eg: bat: Batman Begins, The Batman....
   const filteredMovies = (movies || []).filter((movie) => {
     const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesGenre = selectedGenre === "" || movie.genre_ids.includes(Number(selectedGenre));
@@ -56,7 +54,6 @@ const Movies = () => {
           subtitle="Discover trending movies from around the world."
         />
 
-        {/* as one */}
         <div className="flex flex-col md:flex-row gap-5 mb-10">
           <SearchBar
             searchTerm={searchTerm}
@@ -94,9 +91,6 @@ const Movies = () => {
             <MovieGrid movies={filteredMovies} />
           )
         }
-
-        {/* passing the filtered movies */}
-        {/* <MovieGrid movies={filteredMovies} /> */}
 
       </section>
     </Layout>

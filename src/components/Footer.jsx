@@ -6,7 +6,6 @@ const Footer = () => {
         <footer className="bg-linear-to-t from-black to-[#111111] border-t border-gray-800">
             <div className="max-w-7xl mx-auto px-6 py-12">
 
-                {/* logo */}
                 <Link to="/"
                     onClick={() => {
                         window.scrollTo({
@@ -19,12 +18,10 @@ const Footer = () => {
                     </h2>
                 </Link>
 
-                {/* TMDB attribution */}
                 <p className="text-center text-gray-500 text-sm mt-5">
-                    Movie information provided by TMDB API.
+                    Powered by TMDB API
                 </p>
 
-                {/* copyright */}
                 <p className="text-center text-gray-600 text-sm mt-5">
                     © 2026 FilmXStream. All Rights Reserved. Built with React, Redux Toolkit & Tailwind CSS.
                 </p>

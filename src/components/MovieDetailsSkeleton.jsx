@@ -6,10 +6,8 @@ const MovieDetailsSkeleton = () => {
 
             <div className="flex flex-col md:flex-row gap-10">
 
-                {/* Poster */}
                 <div className="w-72 h-430px rounded-xl bg-gray-800"></div>
 
-                {/* Details */}
                 <div className="flex-1">
 
                     <div className="h-12 w-2/3 bg-gray-800 rounded"></div>

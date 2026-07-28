@@ -10,11 +10,8 @@ import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
 const MovieCard = ({ movie }) => {
-    // change redux state
     const dispatch = useDispatch();
-    // read redux state
     const savedMovies = useSelector((state) => state.watchLater.movies);
-
     const isSaved = savedMovies.some(
         (savedMovies) => savedMovies.id === movie.id
     );

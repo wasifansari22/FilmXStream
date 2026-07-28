@@ -15,8 +15,7 @@ const WatchLater = () => {
     <Layout className='min-h-screen bg-[#141414] text-white flex flex-col'>
       <section className='flex-1 pt-28 pb-10'>
         <div className="max-w-7xl mx-auto px-6">
-          {/* <h1 className='text-4xl font-bold mb-3'>Watch Later</h1>
-          <p className="text-gray-400 mb-8">Keep track of movies you don't want to miss.</p> */}
+          
           <PageHeader
             title="❤️ Watch Later"
             subtitle="Keep track of movies you don't want to miss."
@@ -65,7 +64,6 @@ const WatchLater = () => {
           }
         </div>
       </section>
-
 
     </Layout>
   )

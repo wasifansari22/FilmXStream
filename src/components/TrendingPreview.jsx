@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Button from "../components/Button"
 
 const TrendingPreview = () => {
     return (
@@ -23,11 +24,13 @@ const TrendingPreview = () => {
                         Thousands of movies are waiting for you. Browse, save your favourites and enjoy official trailers.
                     </p>
 
-                    <Link
-                        to="/movies"
-                        className="inline-block mt-8 bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300"
-                    >
-                        Browse Movies
+                    <Link to="/movies">
+                        <Button
+                            variant="primary"
+                            className="mt-8 border border-red-600 text-red-500 hover:bg-red-600 hover:scale-110 hover:text-white px-8 py-3 rounded-lg transition-all duration-300 font-semibold cursor-pointer"
+                        >
+                            Browse Movies
+                        </Button>
                     </Link>
                 </div>
 
