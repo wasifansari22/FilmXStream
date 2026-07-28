@@ -12,6 +12,7 @@ import Button from '../components/Button';
 import Loader from '../components/Loader';
 import EmptyState from '../components/EmptyState';
 import Layout from '../components/Layout';
+import heroImage from '../assets/images/hero.jpg';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -37,10 +38,7 @@ const MovieDetails = () => {
       try {
         const movieData = await getMovieDetails(id);
         setMovie(movieData);
-
-        // const genreData = await getGenres();
-        // setGenres(genreData);
-
+        
         const videos = await getMovieTrailer(id);
         const bestVideo = getBestVideo(videos);
 
@@ -91,7 +89,7 @@ const MovieDetails = () => {
       <Layout>
         <EmptyState
           icon={<FaFilm className="text-red-500 text-5xl" />}
-          title="Movie Not Found"
+          title="Oops! Movie Not Found"
           description="This movie doesn't exist or is no longer available."
           buttonText="Browse Movies"
           buttonLink="/movies"
@@ -102,11 +100,12 @@ const MovieDetails = () => {
 
   return (
     <Layout className="min-h-screen bg-[#141414] text-white">
-
       <div
         className="relative pt-20 h-[65vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url(${imageBaseUrl}${movie.backdrop_path})`,
+          backgroundImage: movie.backdrop_path
+            ? `url(${imageBaseUrl}${movie.backdrop_path})`
+            : `url(${heroImage})`
         }}
       >
         <div className="absolute inset-0 bg-black/70"></div>
@@ -123,7 +122,6 @@ const MovieDetails = () => {
             />
           </div>
 
-
           <div className='text-center md:text-left flex-1'>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               {movie.title}
@@ -133,11 +131,11 @@ const MovieDetails = () => {
               ⭐ {movie.vote_average.toFixed(1)}
             </p>
 
-            <p className="mt-2 text-gray-400">
+            <p className="mt-2 text-gray-200">
               Release Date: {movie.release_date}
             </p>
 
-            <p className="mt-2 text-gray-400">
+            <p className="mt-2 text-gray-200">
               Runtime: {movie.runtime} min
             </p>
 
@@ -145,7 +143,7 @@ const MovieDetails = () => {
               {movie.genres.map((genre) => (
                 <span
                   key={genre.id}
-                  className="bg-red-600 px-4 py-1 rounded-full"
+                  className="bg-red-600/90 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors"
                 >
                   {genre.name}
                 </span>
@@ -159,17 +157,17 @@ const MovieDetails = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button
                 variant="secondary"
+                className="min-w-45"
                 disabled={!trailerKey}
                 onClick={() => setShowTrailer(true)}
               >
-                ▶ Watch Trailer
+                {trailerKey ? "▶ Watch Trailer" : "Trailer Unavailable"}
               </Button>
 
-              {/* watch later button */}
               <button
                 onClick={handleWatchLater}
                 className={`px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2 cursor-pointer ${isSaved
-                  ? "bg-red-600 hover:bg-red-700"
+                  ? "bg-red-600 hover:bg-red-700 min-w-45"
                   : "border border-red-600 text-red-500 hover:bg-red-600 hover:text-white"
                   }`}
               >
@@ -178,13 +176,12 @@ const MovieDetails = () => {
               </button>
             </div>
 
-            {/* back link */}
             <div className="mt-5">
               <Link
                 to="/movies"
-                className="inline-flex items-center text-red-500 hover:text-white transition-all duration-300"
+                className="inline-flex items-center gap-2 text-red-500 font-medium hover:text-white transition-all duration-300"
               >
-                <FaArrowLeft /> &nbsp; Back to Movies
+                <FaArrowLeft /> Back to Movies
               </Link>
             </div>
 
@@ -193,7 +190,6 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      {/* render modal */}
       <TrailerModal
         trailerKey={showTrailer ? trailerKey : ""}
         onClose={() => setShowTrailer(false)} />

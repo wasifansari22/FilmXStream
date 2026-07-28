@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const EmptyState = ({ icon, title, description, buttonText, buttonLink, onButtonClick, }) => {
     return (
-        <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="flex flex-1 items-center justify-center min-h-[77vh]">
             <div className="text-center max-w-lg">
 
                 {icon && (

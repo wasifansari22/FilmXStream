@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({ children, variant = "primary", onClick, disabled = false, className = "", ...props }) => {
-    const baseStyle = "inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 rounded-lg font-semibold transition-all duration-300";
+    const baseStyle = "inline-flex items-center justify-center gap-2 whitespace-nowrap min-w-fit px-6 py-3 rounded-lg font-semibold transition-all duration-300";
     const variants = {
         primary:
             "bg-red-600 hover:bg-red-700 text-white",
@@ -16,7 +16,7 @@ const Button = ({ children, variant = "primary", onClick, disabled = false, clas
             "bg-red-700 hover:bg-red-800 text-white",
 
         disabled:
-            "bg-gray-600 text-gray-300 cursor-not-allowed",
+            "bg-gray-700 text-gray-400 cursor-not-allowed opacity-70",
     };
 
     return (
