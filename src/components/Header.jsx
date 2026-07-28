@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaHeart } from "react-icons/fa";
-import { HiMenu, HiX } from "react-icons/hi";
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -27,14 +25,14 @@ const Header = () => {
                 : "bg-transparent"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-4 flex justify-between items-center">
                 <Link to="/" >
-                    <h1 className="text-red-600 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
+                    <h1 className="text-red-600 text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide transition-opacity duration-300 hover:opacity-90">
                         FilmX<span className='text-white'>Stream</span>
                     </h1>
                 </Link>
 
-                <div className="flex gap-8">
+                <nav className="flex gap-8">
 
                     <Link
                         to="/watchlater"
@@ -47,7 +45,7 @@ const Header = () => {
                             </span>
                         )}
                     </Link>
-                </div>
+                </nav>
             </div>
         </header>
     );

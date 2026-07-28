@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
         <footer className="bg-linear-to-t from-black to-[#111111] border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="max-w-7xl mx-auto px-6 py-10 sm:py-12">
 
                 <Link to="/"
                     onClick={() => {
