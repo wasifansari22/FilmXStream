@@ -66,8 +66,19 @@ const MovieCard = ({ movie }) => {
                 onClick={handleWatchLater}
                 className="w-full h-13"
             >
-                {isSaved ? <FaHeart /> : <FaRegHeart />}
-                {isSaved ? "Saved" : "Watch Later"}
+                {isSaved ? (
+                    <>
+                        <FaHeart/>
+                        Saved
+                    </>
+                ):(
+                    <>
+                        <span className='hidden sm:inline'>
+                            <FaRegHeart/>
+                        </span>
+                        Watch Later
+                    </>
+                )}
             </Button>
 
         </motion.div>

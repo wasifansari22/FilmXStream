@@ -29,7 +29,6 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/watchlater" element={<WatchLater />} />
-        <Route path="/filter" element={<Filter />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
