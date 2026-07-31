@@ -58,19 +58,19 @@ It was built with the goal of following real-world development practices, includ
 
 ### 🏠 Landing Page
 
-> *(Add screenshot here)*
+![Landing Page](src/assets/screenshot/landing.png)
 
 ### 🎬 Movies Page
 
-> *(Add screenshot here)*
+![Movies Page](src/assets/screenshot/movies.png)
 
 ### 🎥 Movie Details
 
-> *(Add screenshot here)*
+![Movie Details](src/assets/screenshot/details.png)
 
 ### ❤️ Watch Later
 
-> *(Add screenshot here)*
+![Watch Later](src/assets/screenshot/watchlater.png)
 
 ---
 
