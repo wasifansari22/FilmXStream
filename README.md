@@ -1,16 +1,161 @@
-# React + Vite
+# 🎬 FilmXStream
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern movie discovery web application built with **React**, **Redux Toolkit**, **Tailwind CSS**, and the **TMDB API**.
 
-Currently, two official plugins are available:
+Browse trending movies, search by title, filter by genre, watch official trailers, and save your favourite movies to a persistent **Watch Later** list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 About the Project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+FilmXStream is a portfolio project created to strengthen my frontend development skills using React and modern web technologies.
 
-## Expanding the ESLint configuration
+The application focuses on clean UI/UX, reusable components, responsive design, Redux Toolkit for state management, and API integration with The Movie Database (TMDB).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+It was built with the goal of following real-world development practices, including component reusability, loading states, error handling, responsive layouts, and smooth user interactions.
+
+---
+
+## ✨ Features
+
+- 🎬 Browse trending movies from TMDB
+- 🔍 Search movies by title
+- 🎭 Filter movies by genre
+- ❤️ Add and remove movies from the Watch Later list
+- 💾 Persistent Watch Later state using Redux Toolkit
+- ▶️ Watch official movie trailers
+- 📱 Fully responsive design for desktop, tablet, and mobile
+- ⚡ Smooth page transitions with Framer Motion
+- ⬆️ Scroll-to-top button
+- 💀 Custom Empty States
+- 🚫 Professional 404 page
+- 🎨 Netflix-inspired modern UI
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- React
+- React Router DOM
+- Redux Toolkit
+- Tailwind CSS
+- Framer Motion
+
+### API
+
+- TMDB API
+
+### Libraries
+
+- Axios
+- React Icons
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Landing Page
+
+> *(Add screenshot here)*
+
+### 🎬 Movies Page
+
+> *(Add screenshot here)*
+
+### 🎥 Movie Details
+
+> *(Add screenshot here)*
+
+### ❤️ Watch Later
+
+> *(Add screenshot here)*
+
+---
+
+## 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/FilmXStream.git
+```
+
+Navigate into the project:
+
+```bash
+cd FilmXStream
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file in the project root and add your TMDB API key:
+
+```env
+VITE_TMDB_API_KEY=YOUR_API_KEY
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔑 Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `VITE_TMDB_API_KEY` | Your TMDB API key |
+
+---
+
+---
+
+## 📚 What I Learned
+
+Building FilmXStream helped me strengthen my understanding of:
+
+- React component architecture
+- State management with Redux Toolkit
+- React Router for navigation
+- API integration using Axios
+- Building reusable UI components
+- Responsive design with Tailwind CSS
+- Managing loading, error, and empty states
+- Creating smooth page transitions with Framer Motion
+- Organizing scalable React project structures
+
+---
+
+## 🔮 Future Improvements
+
+- 🔐 User Authentication
+- 🌙 Dark/Light Theme
+- ⭐ Movie Ratings & Reviews
+- 📄 Pagination / Infinite Scrolling
+- 🤖 Movie Recommendations
+- 🎭 Cast & Actor Details
+- 📺 TV Shows Support
+
+---
+
+## 🙏 Acknowledgements
+
+Movie data and images are provided by **The Movie Database (TMDB)**.
+
+A huge thanks to TMDB for providing a free and developer-friendly API that made this project possible.
+
+---
+
+## 👨‍💻 Author
+
+**Wasif Ansari**
+
+- GitHub: https://github.com/YOUR_USERNAME

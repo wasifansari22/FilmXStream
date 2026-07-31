@@ -4,7 +4,6 @@ import Landing from "./pages/Landing";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
 import WatchLater from "./pages/WatchLater";
-import Filter from "./pages/Filter";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
