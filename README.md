@@ -1,10 +1,9 @@
 # 🎬 FilmXStream
 
-A modern movie discovery web application built with **React**, **Redux Toolkit**, **Tailwind CSS**, and the **TMDB API**.
+A modern, responsive movie discovery web application built with **React**, **Redux Toolkit**, **Tailwind CSS**, **Framer Motion**, and the **TMDB API**.
 
-Browse trending movies, search by title, filter by genre, watch official trailers, and save your favourite movies to a persistent **Watch Later** list.
+FilmXStream allows users to browse trending movies, search by title, filter by genre, watch official trailers, and manage a persistent Watch Later list with a clean, Netflix-inspired user interface.
 
----
 
 ## 📖 About the Project
 
@@ -14,7 +13,6 @@ The application focuses on clean UI/UX, reusable components, responsive design, 
 
 It was built with the goal of following real-world development practices, including component reusability, loading states, error handling, responsive layouts, and smooth user interactions.
 
----
 
 ## ✨ Features
 
@@ -31,11 +29,10 @@ It was built with the goal of following real-world development practices, includ
 - 🚫 Professional 404 page
 - 🎨 Netflix-inspired modern UI
 
----
 
 ## 🛠 Tech Stack
 
-### Frontend
+### ⚛️ Frontend
 
 - React
 - React Router DOM
@@ -43,16 +40,15 @@ It was built with the goal of following real-world development practices, includ
 - Tailwind CSS
 - Framer Motion
 
-### API
+### 🌐 API
 
 - TMDB API
 
-### Libraries
+### 📦 Libraries
 
 - Axios
 - React Icons
 
----
 
 ## 📸 Screenshots
 
@@ -72,14 +68,13 @@ It was built with the goal of following real-world development practices, includ
 
 ![Watch Later](src/assets/screenshot/watchlater.png)
 
----
 
 ## 🚀 Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FilmXStream.git
+git clone https://github.com/wasifansari22/FilmXStream.git
 ```
 
 Navigate into the project:
@@ -106,17 +101,13 @@ Start the development server:
 npm run dev
 ```
 
----
-
 ## 🔑 Environment Variables
 
 | Variable | Description |
-|----------|-------------|
+|-|-|
 | `VITE_TMDB_API_KEY` | Your TMDB API key |
 
----
 
----
 
 ## 📚 What I Learned
 
@@ -132,7 +123,6 @@ Building FilmXStream helped me strengthen my understanding of:
 - Creating smooth page transitions with Framer Motion
 - Organizing scalable React project structures
 
----
 
 ## 🔮 Future Improvements
 
@@ -144,7 +134,6 @@ Building FilmXStream helped me strengthen my understanding of:
 - 🎭 Cast & Actor Details
 - 📺 TV Shows Support
 
----
 
 ## 🙏 Acknowledgements
 
@@ -152,10 +141,13 @@ Movie data and images are provided by **The Movie Database (TMDB)**.
 
 A huge thanks to TMDB for providing a free and developer-friendly API that made this project possible.
 
----
 
 ## 👨‍💻 Author
 
 **Wasif Ansari**
 
 GitHub: [@wasifansari22](https://github.com/wasifansari22)
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
