@@ -158,4 +158,4 @@ A huge thanks to TMDB for providing a free and developer-friendly API that made 
 
 **Wasif Ansari**
 
-- GitHub: https://github.com/YOUR_USERNAME
+GitHub: [@wasifansari22](https://github.com/wasifansari22)
